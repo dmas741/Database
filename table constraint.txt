@@ -1,0 +1,81 @@
+cd c:/xampp/mysql/bin
+mysql.exe -u root
+
+-> show databases;
+-> use database db_karyawan;
+-> create table perusahaan
+->(id_p varchar(10) primary key,
+-> nama varchar(45),
+-> alamat varchar(45));
+-> desc perusahaan;
+
+-> insert into perusahaan(id_p,nama,alamat) values
+-> ('P01','Kantor Pusat',''),
+-> ('P02','Cabang Bekasi','');
+-> select * from perusahaan;
+
+-> create table departemen
+-> (id_dept varchar(10) primary key,
+-> nama varchar(45),
+-> id_p varchar(10),
+-> manajer_nik varchar(10));
+-> desc departemen;
+
+-> insert into departemen(id_dept,nama,id_p,manajer_nik) values
+-> ('D01','Produksi','P02','N01'),
+-> ('D02','Marketing','P01','N03'),
+-> ('D03','RnD','P02',''),
+-> ('D04','Logistik','P02','');
+-> select * from departemen;
+
+-> create table karyawan
+-> (nik varchar(10) primary key,
+-> nama varchar(45),
+-> id_dept varchar(10),
+-> sup_nik varchar(10));
+-> desc karyawan;
+
+-> insert into karyawan(nik,nama,id_dept,sup_nik) values
+-> ('N01','Ari','D01',''),
+-> ('N02','Dina','D01',''),
+-> ('N03','Rika','D03',''),
+-> ('N04','Ratih','D01','N01'),
+-> ('N05','Riko','D01','N01'),
+-> ('N06','Dani','D02',''),
+-> ('N07','Anis','D02','N06'),
+-> ('N08','Dika','D02','N06');
+-> select * from karyawan;
+
+-> create table project
+-> (id_proj varchar(10) primary key,
+-> nama varchar(45),
+-> tgl_mulai datetime,
+-> tgl_selesai datetime,
+-> status tinyint(1));
+-> desc project;
+
+-> insert into project(id_proj,nama,tgl_mulai,tgl_selesai,status) values
+-> ('PJ01','A','2019-01-10','2019-03-10','1'),
+-> ('PJ02','B','2019-02-15','2019-04910','1');
+-> select * from project;
+
+-> create table project_detail
+-> (id_proj varchar(10) primary key,
+-> nik varchar(10));
+-> desc project_detail
+
+-> insert into project_detail(id_proj,nik) values
+-> ('PJ01','N01'),
+-> ('PJ01','N02'),
+-> ('PJ01','N03'),
+-> ('PJ01','N04'),
+-> ('PJ01','N05'),
+-> ('PJ01','N07'),
+-> ('PJ01','N08'),
+-> ('PJ02','N01'),
+-> ('PJ02','N03'),
+-> ('PJ02','N05'),
+-> ('PJ03','N03'),
+-> ('PJ03','N07'),
+-> ('PJ03','N08');
+-> select * from project_detail
